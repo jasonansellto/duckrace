@@ -1,0 +1,205 @@
+/* Add styles for the header, logo, and search box */
+.header {
+  display: flex;
+  justify-content: space-between; /* Spreads out logo and search box */
+  align-items: center;
+  padding: 1rem; /* Add some padding */
+}
+
+.headerLogo {
+  flex-grow: 1; /* Allows logo to grow and take necessary space */
+}
+
+.headerSearch {
+  flex-grow: 2; /* Allows search box to take more space */
+  max-width: 500px; /* Maximum width of the search box */
+  margin-left: auto; /* Ensures it stays to the right */
+}
+
+/* DuckCard styles */
+.duck-card-link {
+  display: block;
+  color: inherit; /* Ensure the link color does not change */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.duck-card {
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  margin-bottom: 1rem; /* Add space below the card */
+}
+
+.duck-card:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Add a subtle shadow to indicate interactivity */
+}
+
+.duck-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem; /* Space between the header and the card content */
+}
+
+.duck-card-distance {
+  font-weight: bold; /* Make the distance stand out */
+}
+
+/* Color styles for different positions */
+.red-text {
+  color: red; /* Red text color */
+}
+
+.blue-text {
+  color: blue; /* Blue text color */
+}
+
+.green-text {
+  color: green; /* Green text color */
+}
+
+.position-badge {
+  display: inline-block;
+  padding: .5em;
+  font-size: larger; /* Adjust the font size as needed */
+  font-weight: bold; /* Makes the text bold */
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.375rem;
+}
+
+.default-position {
+  color: #333; /* Dark text for contrast */
+}
+
+/*Home Screen Hero and scroll */
+
+.homeContainer {
+  position: relative; /* This makes it a reference point for absolute positioning */
+}
+
+.heroSection {
+  position: relative; /* Needed for the filter overlay positioning */
+  height: 450px; /* Set the height of your hero section */
+  overflow: hidden; /* Ensures no overflow of content */
+  /* background: url('../src/assets/images/HeroImageSmall.jpg') no-repeat center center; */
+  background-size: cover;
+  background-attachment: fixed;
+  /* background-position: center 70px; */
+}
+
+.heroSection::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: rgba(0, 0, 0, 0.5); Overlay effect */
+  z-index: 1;
+}
+
+.heroText {
+  color: white; /* Set text color to white */
+  font-size: 2rem; /* Set the desired font size */
+  text-align: center; /* Center the text horizontally */
+  width: 100%; /* Ensure the div takes full width */
+  padding-top: 20px; /* Add some padding at the top to push it down slightly from the hero section */
+  padding-bottom: 20px; /* Add some padding at the bottom for spacing before the next content section */
+  background: linear-gradient(to bottom, #A6051A, #000000); 
+  /*background: rgb(0, 0, 0.5); Optional: Add a semi-transparent background to ensure text readability */
+  /* Remove negative margins, absolute positioning, and z-index */
+}
+
+.scrollContent {
+  background: transparent;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the area */
+  position: absolute; /* Aligns the image properly within the heroSection */
+  top: 0;
+  left: 0;
+}
+
+/* loaderContainer {
+  display: 'flex';
+  justify-content: 'center';
+  align-Items: 'center';
+  height: '100vh';
+} */
+
+
+@media (min-width: 769px) {
+  .heroSection {
+    background-image: url('../src/assets/images/HeroImage.jpg'); /* Path to your larger image */
+  }
+}
+  /* .heroSection {
+    background: url('../src/assets/images/HeroImage.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+} */
+
+/* Mobile friendly adjustments */
+
+@media (max-width: 768px) {
+
+  .heroSection {
+    background: url('../src/assets/images/HeroImageSmall.jpg') no-repeat center center; /* Path to your smaller image */
+    height: 321px;
+    overflow: hidden;
+  }
+
+  .header {
+    flex-direction: column; /* Stack logo and search box vertically */
+  }
+
+  .headerSearch {
+    width: 100%; /* Full width for the search box */
+    margin-top: 1rem; /* Add some space between logo and search box */
+  }
+
+  /* Responsive grid adjustments for DuckCard on smaller screens */
+  .ui.grid>.row>.column, .ui.grid>.column {
+    flex-basis: 50% !important; /* Set to use 50% of the row */
+    max-width: 50% !important; /* Set a maximum width to 50% of the container */
+    display: inline-block !important; /* Needed to prevent full-width stretch on flex items */
+  }
+
+  .duck-card {
+    margin-left: auto; /* Centers the card if it's less than full width */
+    margin-right: auto; /* Centers the card if it's less than full width */
+    max-width: 100%; /* Limits card width to prevent stretching */
+  }
+
+  .duck-card-header {
+    flex-direction: column; /* Position above distance */
+    text-align: center; /* Center the text for mobile */
+    font-size: 24px; /* Adjust font size as needed */
+    font-weight: bold; /* Make the font bold */
+  }
+
+  .duck-card-distance, .position, .ui.header.h3 {
+    display: block; /* Stack position, distance, and name */
+    width: 100%; /* Full width of the card */
+    margin-top: 5px; /* Space between position, distance, and name */
+    /* text-align: center; Center the text */
+  }
+  /* Text color
+styles for positions /
+.red-text {
+color: #db2828 !important; / Semantic UI red text color */
+}
+
+.blue-text {
+color: #2185d0 !important; /* Semantic UI blue text color */
+}
+
+.green-text {
+color: #21ba45 !important; /* Semantic UI green text color */
+}
